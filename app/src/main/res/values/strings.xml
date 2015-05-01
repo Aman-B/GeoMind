@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">fsdf</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="menu">
+        <item>Add Task</item>
+        <item>View Tasks/Delete</item>
+    </string-array>
+
+    <string name="title_activity_second">Second</string>
+    <string name="title_activity_edit">Edit</string>
+    <string name="title_activity_select">SelectActivity</string>
+
+</resources>
