@@ -21,7 +21,7 @@
         android:padding="20dp"
         android:listSelector="@android:color/darker_gray"
 
-        >
+        android:layout_alignParentTop="true">
 
     </ListView>
 

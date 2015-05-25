@@ -25,22 +25,28 @@ public class Second extends ActionBarActivity {
     private Button button2;
     double lat[] = new double[100];
     double longt[] = new double[100];
+    int listsize;
+    ArrayAdapter <String> adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
         lv = (ListView) findViewById(R.id.listView1);
         mydatabase = openOrCreateDatabase("seproject", MODE_PRIVATE, null);
         Cursor cursor = mydatabase.rawQuery("Select * from Store", null);
+
         final ArrayList<String> list = new ArrayList<String>();
         int i = 0;
+//        Collections.reverse(list);  //to get items in order in the list by the order that they were saved.
         if (cursor != null && cursor.getCount() > 0) {
 
             cursor.moveToFirst();
 
             do {
+                String s= cursor.getString(0);
+                System.out.println("Query result : " + s);
                 list.add(cursor.getString(0));
 
                 lat[i] = Double.parseDouble(cursor.getString(1));
@@ -50,14 +56,14 @@ public class Second extends ActionBarActivity {
             } while (cursor.moveToNext());
             mydatabase.close();
 
-            final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_list_item_1, list);
-            lv.setAdapter(adapter);
-            lv.setItemChecked(0, true);
-            CheckedItem = 0;
         }
+//        Collections.reverse(list);  //to get items in order in the list by the order that they were saved.
 
-
+        adapter  = new marrayadapter(this,list);
+        lv.setAdapter(adapter);
+        lv.setItemChecked(list.size()-1, true);
+         listsize= list.size();
+        CheckedItem = --listsize;
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
@@ -77,14 +83,31 @@ public class Second extends ActionBarActivity {
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                mydatabase = openOrCreateDatabase("seproject", 0, null);
-                mydatabase.delete("Store", "Job" + "='" + list.get(CheckedItem) + "'", null);
-                Toast.makeText(Second.this, "Deleted", Toast.LENGTH_LONG).show();
-                mydatabase.close();
+              try {
 
-                Intent i = new Intent(Second.this, Second.class);
-                startActivity(i);
-                finish();
+                  mydatabase = openOrCreateDatabase("seproject", 0, null);
+
+                  mydatabase.delete("Store", "Job" + "='" + list.get(CheckedItem) + "'", null);
+                  Toast.makeText(Second.this, "Deleted", Toast.LENGTH_LONG).show();
+                 mydatabase.close();
+                 /* Intent i = new Intent(Second.this, Second.class);
+                  startActivity(i);
+                  finish(); Replaced with following*/
+
+                  list.remove(CheckedItem--);
+
+                  adapter.notifyDataSetChanged();
+
+
+
+                  }
+              catch (Exception e)
+              {
+                  Toast.makeText(Second.this,"No tasks to delete.", Toast.LENGTH_SHORT).show();
+              }
+
+
+
             }
         });
         button2 = (Button) findViewById(R.id.button1);
@@ -135,4 +158,3 @@ public class Second extends ActionBarActivity {
 	         */
     }
 }
-

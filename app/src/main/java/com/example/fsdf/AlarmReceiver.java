@@ -65,6 +65,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 		        	 NM=(NotificationManager)arg0.getSystemService(Context.NOTIFICATION_SERVICE);
 		      //  	 Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
+
+
 		             @SuppressWarnings("deprecation")
 		             
 					Notification notify=new Notification(android.R.drawable.ic_lock_idle_alarm,"GeoBells",System.currentTimeMillis());
@@ -72,13 +74,15 @@ public class AlarmReceiver extends BroadcastReceiver {
 		             PendingIntent pending=PendingIntent.getActivity(arg0.getApplicationContext(),0, new Intent(),0);
 		             notify.setLatestEventInfo(arg0.getApplicationContext(),"GeoBells",cursor.getString(0),pending);
 
+
 		             NM.notify(0, notify);
 		             
 		             try {
-		            	    Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+		            	    Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 		            	    Ringtone r = RingtoneManager.getRingtone(arg0.getApplicationContext(), notification);
 		            	    r.play();
-		            	   Thread.sleep(8000);
+
+                         Thread.sleep(1000);
 		            	    r.stop();
 		            	} catch (Exception e) {
 		            	    e.printStackTrace();

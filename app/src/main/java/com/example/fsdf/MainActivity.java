@@ -54,7 +54,7 @@ public class MainActivity extends FragmentActivity {
 				// get prompts.xml view
 				LayoutInflater li = LayoutInflater.from(context);
 				View promptsView = li.inflate(R.layout.prompts, null);
- 
+
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 						context);
  
@@ -67,7 +67,7 @@ public class MainActivity extends FragmentActivity {
 				// set dialog message
 				alertDialogBuilder
 					.setCancelable(false)
-					.setPositiveButton("OK",
+					.setPositiveButton("Done",
 					  new DialogInterface.OnClickListener() {
 					    public void onClick(DialogInterface dialog,int id) {
 						// get user input and set it to result
@@ -78,7 +78,7 @@ public class MainActivity extends FragmentActivity {
 					        mydatabase.close();
 					        Toast.makeText(
 		              	               MainActivity.this,
-		              	                "Added",
+		              	                "Task added",
 		              	                Toast.LENGTH_LONG).show();
 					    }
 					  })
@@ -140,6 +140,7 @@ public class MainActivity extends FragmentActivity {
 
   		  googleMap.addMarker(new MarkerOptions().position(new LatLng(lat, longt)).draggable(true)
   		      .title("Drag to the desired location"));
+            Toast.makeText(getApplicationContext(), "Drag the marker to desired location.", Toast.LENGTH_SHORT).show();
   		  googleMap.setOnMarkerDragListener(new OnMarkerDragListener() {
 
               @Override
@@ -164,7 +165,7 @@ public class MainActivity extends FragmentActivity {
 
               @Override
               public void onMarkerDrag(Marker marker) {
-                  
+
               }
           });
 
