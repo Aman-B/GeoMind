@@ -88,7 +88,7 @@ public class Second extends ActionBarActivity {
                   mydatabase = openOrCreateDatabase("seproject", 0, null);
 
                   mydatabase.delete("Store", "Job" + "='" + list.get(CheckedItem) + "'", null);
-                  Toast.makeText(Second.this, "Deleted", Toast.LENGTH_LONG).show();
+                  Toast.makeText(Second.this, "Deleted", Toast.LENGTH_SHORT).show();
                  mydatabase.close();
                  /* Intent i = new Intent(Second.this, Second.class);
                   startActivity(i);

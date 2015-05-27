@@ -79,7 +79,7 @@ public class MainActivity extends FragmentActivity {
 					        Toast.makeText(
 		              	               MainActivity.this,
 		              	                "Task added",
-		              	                Toast.LENGTH_LONG).show();
+		              	                Toast.LENGTH_SHORT).show();
 					    }
 					  })
 					.setNegativeButton("Cancel",
@@ -156,11 +156,11 @@ public class MainActivity extends FragmentActivity {
               	                MainActivity.this,
               	                "Lat " + position.latitude
               	                        ,
-              	                Toast.LENGTH_LONG).show();
+              	                Toast.LENGTH_SHORT).show();
             	Toast.makeText(
       	                MainActivity.this,
       	                 "Long " + position.longitude,
-      	                Toast.LENGTH_LONG).show();
+      	                Toast.LENGTH_SHORT).show();
               }
 
               @Override
@@ -207,4 +207,6 @@ public class MainActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
          */
     }
+
+
 }    

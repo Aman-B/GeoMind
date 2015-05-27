@@ -1,8 +1,6 @@
 package com.example.fsdf;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -25,12 +23,13 @@ public class SelectActivity extends ActionBarActivity {
         setContentView(R.layout.activity_select);
         Button addTask = (Button) findViewById(R.id.add_task_button);
         Button viewTask = (Button) findViewById(R.id.view_all_tasks_button);
-        Button exit = (Button) findViewById(R.id.exit_button);
+        //Button exit = (Button) findViewById(R.id.exit_button);
 
 
         viewTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent i = new Intent(SelectActivity.this, Second.class);
                 startActivity(i);
             }
@@ -44,7 +43,7 @@ public class SelectActivity extends ActionBarActivity {
             }
         });
 
-        exit.setOnClickListener(new View.OnClickListener() {
+       /* exit.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View arg0) {
@@ -70,7 +69,7 @@ public class SelectActivity extends ActionBarActivity {
             }
             //Intent i = new Intent(SelectActivity.this, Exit.class);
             //startActivity(i);
-        });
+        });*/
 
     }
 

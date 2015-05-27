@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+android:shape="oval">
+<gradient
+    android:startColor="#37474F"
+    android:endColor="#37474F"
+    android:angle="45"/>
+<!--<padding android:left="5dp"
+    android:top="5dp"
+    android:right="5dp"
+    android:bottom="5dp" />-->
+
+    <stroke
+        android:width="2sp"
+        android:color="@color/wallet_holo_blue_light" />
+
+
+
+
+    <size
+        android:width="5dp"
+        android:height="5dp"/>
+<corners android:radius="6dp" />
+</shape>
+

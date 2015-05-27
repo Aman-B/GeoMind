@@ -72,7 +72,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 					Notification notify=new Notification(android.R.drawable.ic_lock_idle_alarm,"GeoBells",System.currentTimeMillis());
 		              
 		             PendingIntent pending=PendingIntent.getActivity(arg0.getApplicationContext(),0, new Intent(),0);
-		             notify.setLatestEventInfo(arg0.getApplicationContext(),"GeoBells",cursor.getString(0),pending);
+		             notify.setLatestEventInfo(arg0.getApplicationContext(),"GeoMind",cursor.getString(0),pending);
 
 
 		             NM.notify(0, notify);
