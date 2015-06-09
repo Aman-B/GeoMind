@@ -29,7 +29,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 	@Override
     public void onReceive(Context arg0, Intent arg1) {
         // For our recurring task, we'll just display a message
-    	mydatabase = arg0.openOrCreateDatabase("seproject",0,null);
+    	mydatabase = arg0.openOrCreateDatabase("geomind",0,null);
     	 mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Store(Job VARCHAR,Latitude double, Longitude double);");
 		Cursor cursor = mydatabase.rawQuery("Select * from Store",null);
         //Toast.makeText(arg0, "I'm running", Toast.LENGTH_SHORT).show();
@@ -69,7 +69,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 		             @SuppressWarnings("deprecation")
 		             
-					Notification notify=new Notification(android.R.drawable.ic_lock_idle_alarm,"GeoBells",System.currentTimeMillis());
+					Notification notify=new Notification(android.R.drawable.ic_lock_idle_alarm,"GeoMind",System.currentTimeMillis());
 		              
 		             PendingIntent pending=PendingIntent.getActivity(arg0.getApplicationContext(),0, new Intent(),0);
 		             notify.setLatestEventInfo(arg0.getApplicationContext(),"GeoMind",cursor.getString(0),pending);

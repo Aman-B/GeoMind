@@ -72,7 +72,7 @@ public class MainActivity extends FragmentActivity {
 					    public void onClick(DialogInterface dialog,int id) {
 						// get user input and set it to result
 						// edit text
-					    	mydatabase = openOrCreateDatabase("seproject",MODE_PRIVATE,null);
+					    	mydatabase = openOrCreateDatabase("geomind",MODE_PRIVATE,null);
 					        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Store(Job VARCHAR,Latitude double, Longitude double);");
 					        mydatabase.execSQL("INSERT INTO Store VALUES('"+userInput.getText()+"',"+position.latitude+","+position.longitude+");");
 					        mydatabase.close();

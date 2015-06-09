@@ -37,7 +37,7 @@ public class Second extends ActionBarActivity {
         setContentView(R.layout.activity_second);
 
         lv = (ListView) findViewById(R.id.listView1);
-        mydatabase = openOrCreateDatabase("seproject", MODE_PRIVATE, null);
+        mydatabase = openOrCreateDatabase("geomind", MODE_PRIVATE, null);
         Cursor cursor = mydatabase.rawQuery("Select * from Store", null);
 
         final ArrayList<String> list = new ArrayList<String>();
@@ -88,7 +88,7 @@ public class Second extends ActionBarActivity {
             public void onClick(View arg0) {
               try {
 
-                  mydatabase = openOrCreateDatabase("seproject", 0, null);
+                  mydatabase = openOrCreateDatabase("geomind", 0, null);
 
                   mydatabase.delete("Store", "Job" + "='" + list.get(CheckedItem) + "'", null);
                   Toast.makeText(Second.this, "Deleted", Toast.LENGTH_SHORT).show();
@@ -118,7 +118,7 @@ public class Second extends ActionBarActivity {
             @Override
             public void onClick(View arg0) {
                try {
-                   mydatabase = openOrCreateDatabase("seproject", 0, null);
+                   mydatabase = openOrCreateDatabase("geomind", 0, null);
                    mydatabase.delete("Store", "Job" + "='" + list.get(CheckedItem) + "'", null);
                    Intent i = new Intent(Second.this, Edit.class);
                    i.putExtra("job", list.get(CheckedItem));

@@ -76,7 +76,7 @@ LatLng position;
                                             public void onClick(DialogInterface dialog, int id) {
                                                 // get user input and set it to result
                                                 // edit text
-                                                mydatabase = openOrCreateDatabase("seproject", MODE_PRIVATE, null);
+                                                mydatabase = openOrCreateDatabase("geomind", MODE_PRIVATE, null);
                                                 mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Store(Job VARCHAR,Latitude double, Longitude double);");
                                                 mydatabase.execSQL("INSERT INTO Store VALUES('" + userInput.getText() + "'," + position.latitude + "," + position.longitude + ");");
                                                 mydatabase.close();
@@ -145,11 +145,11 @@ LatLng position;
      	                Edit.this,
      	                "Lat " + position.latitude
      	                        ,
-     	                Toast.LENGTH_LONG).show();
+     	                Toast.LENGTH_SHORT).show();
    	Toast.makeText(
 	                Edit.this,
 	                 "Long " + position.longitude,
-	                Toast.LENGTH_LONG).show();
+	                Toast.LENGTH_SHORT).show();
               }
 
               @Override
