@@ -114,14 +114,21 @@ public class Second extends ActionBarActivity {
         button2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                mydatabase = openOrCreateDatabase("seproject", 0, null);
-                mydatabase.delete("Store", "Job" + "='" + list.get(CheckedItem) + "'", null);
-                Intent i = new Intent(Second.this, Edit.class);
-                i.putExtra("job", list.get(CheckedItem));
-                i.putExtra("lat", lat[CheckedItem]);
-                i.putExtra("longt", longt[CheckedItem]);
-                startActivity(i);
-                mydatabase.close();
+               try {
+                   mydatabase = openOrCreateDatabase("seproject", 0, null);
+                   mydatabase.delete("Store", "Job" + "='" + list.get(CheckedItem) + "'", null);
+                   Intent i = new Intent(Second.this, Edit.class);
+                   i.putExtra("job", list.get(CheckedItem));
+                   i.putExtra("lat", lat[CheckedItem]);
+                   i.putExtra("longt", longt[CheckedItem]);
+                   startActivity(i);
+                   mydatabase.close();
+               }
+
+                catch (Exception e)
+                {
+                    Toast.makeText(Second.this,"No items to edit.",Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

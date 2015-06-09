@@ -51,54 +51,58 @@ LatLng position;
         	 
 			@Override
 			public void onClick(View arg0) {
- 
-				// get prompts.xml view
-				LayoutInflater li = LayoutInflater.from(context);
-				View promptsView = li.inflate(R.layout.prompts, null);
- 
-				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-						context);
- 
-				// set prompts.xml to alertdialog builder
-				alertDialogBuilder.setView(promptsView);
- 
-				final EditText userInput = (EditText) promptsView
-						.findViewById(R.id.editTextDialogUserInput);
-				userInput.setText(job);
- 
-				// set dialog message
-				alertDialogBuilder
-					.setCancelable(false)
-					.setPositiveButton("OK",
-					  new DialogInterface.OnClickListener() {
-					    public void onClick(DialogInterface dialog,int id) {
-						// get user input and set it to result
-						// edit text
-					    	mydatabase = openOrCreateDatabase("seproject",MODE_PRIVATE,null);
-					        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Store(Job VARCHAR,Latitude double, Longitude double);");
-					        mydatabase.execSQL("INSERT INTO Store VALUES('"+userInput.getText()+"',"+position.latitude+","+position.longitude+");");
-					        mydatabase.close();
-					        Toast.makeText(
-		              	               Edit.this,
-		              	                "Edited",
-		              	                Toast.LENGTH_LONG).show();
-					        Intent i = new Intent(Edit.this, Second.class);
-				            startActivity(i);
-					    }
-					  })
-					.setNegativeButton("Cancel",
-					  new DialogInterface.OnClickListener() {
-					    public void onClick(DialogInterface dialog,int id) {
-						dialog.cancel();
-					    }
-					  });
-				// create alert dialog
-				AlertDialog alertDialog = alertDialogBuilder.create();
- 
-				// show it
-				alertDialog.show();
- 
-			}
+
+
+
+                        // get prompts.xml view
+                        LayoutInflater li = LayoutInflater.from(context);
+                        View promptsView = li.inflate(R.layout.prompts, null);
+
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                                context);
+
+                        // set prompts.xml to alertdialog builder
+                        alertDialogBuilder.setView(promptsView);
+
+                        final EditText userInput = (EditText) promptsView
+                                .findViewById(R.id.editTextDialogUserInput);
+                        userInput.setText(job);
+
+                        // set dialog message
+                        alertDialogBuilder
+                                .setCancelable(false)
+                                .setPositiveButton("OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                // get user input and set it to result
+                                                // edit text
+                                                mydatabase = openOrCreateDatabase("seproject", MODE_PRIVATE, null);
+                                                mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Store(Job VARCHAR,Latitude double, Longitude double);");
+                                                mydatabase.execSQL("INSERT INTO Store VALUES('" + userInput.getText() + "'," + position.latitude + "," + position.longitude + ");");
+                                                mydatabase.close();
+                                                Toast.makeText(
+                                                        Edit.this,
+                                                        "Edited",
+                                                        Toast.LENGTH_LONG).show();
+                                                Intent i = new Intent(Edit.this, Second.class);
+                                                startActivity(i);
+                                            }
+                                        })
+                                .setNegativeButton("Cancel",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                dialog.cancel();
+                                            }
+                                        });
+                        // create alert dialog
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+
+                        // show it
+                        alertDialog.show();
+                    }
+
+
+
 
 		
 			
@@ -175,7 +179,7 @@ LatLng position;
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.about) {
             return true;
         }
        
