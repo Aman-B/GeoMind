@@ -13,5 +13,11 @@
     <string name="title_activity_second">Second</string>
     <string name="title_activity_edit">Edit</string>
     <string name="title_activity_select">SelectActivity</string>
+    <string name="details">
+    "An app that lets you create reminders according to locations.
+
+    Just add the tasks which you want to perform at a certain place and you will get a reminder for the same, when you get to the place.
+
+                      Enjoy! "</string>
 
 </resources>

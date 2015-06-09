@@ -134,7 +134,7 @@ public class MainActivity extends FragmentActivity {
         position = new LatLng(lat,longt);
         if (googleMap !=null){
         	CameraPosition cameraPosition = new CameraPosition.Builder().target(
-                    new LatLng(lat, longt)).zoom(12).build();
+                    new LatLng(lat, longt)).zoom(15).build();
      
     googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
@@ -197,15 +197,47 @@ public class MainActivity extends FragmentActivity {
 //        case R.id.menu_view:
 //            Intent i = new Intent(MainActivity.this, Second.class);
 //            startActivity(i);
-          return true;
+
 //            default:
 //            	return super.onOptionsItemSelected(item);    }
-       /* if (id == R.id.action_settings) {
+        int id=item.getItemId();
+        if (id == R.id.about) {
+
+            // get prompts.xml view
+            LayoutInflater li = LayoutInflater.from(context);
+            View aboutView = li.inflate(R.layout.about, null);
+
+            final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    context);
+
+            // set prompts.xml to alertdialog builder
+            alertDialogBuilder.setView(aboutView);
+
+
+
+            alertDialogBuilder
+                    .setCancelable(true)
+                    .setPositiveButton("Alright!",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // get user input and set it to result
+                                    // edit text
+                                    dialog.cancel();
+                                }
+                            });
+
+
+
+            // create alert dialog
+            final AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
             return true;
         }
        
         return super.onOptionsItemSelected(item);
-         */
+
     }
 
 

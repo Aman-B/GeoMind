@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context="com.example.fsdf.SelectActivity">
-    <item android:id="@+id/about" android:title="About us"
+    <item android:id="@+id/about" android:title="About"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>

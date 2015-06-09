@@ -1,9 +1,12 @@
 package com.example.fsdf;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -89,6 +92,38 @@ public class SelectActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.about) {
+
+
+            // get prompts.xml view
+            LayoutInflater li = LayoutInflater.from(context);
+            View aboutView = li.inflate(R.layout.about, null);
+
+            final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    context);
+
+            // set prompts.xml to alertdialog builder
+            alertDialogBuilder.setView(aboutView);
+
+
+
+            alertDialogBuilder
+                    .setCancelable(true)
+                    .setPositiveButton("Alright!",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // get user input and set it to result
+                                    // edit text
+                                    dialog.cancel();
+                                }
+                            });
+
+
+
+            // create alert dialog
+            final AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
             return true;
         }
 
