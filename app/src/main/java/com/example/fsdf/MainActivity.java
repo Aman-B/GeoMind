@@ -105,8 +105,11 @@ public class MainActivity extends FragmentActivity {
     }
     protected void onPause()
     {
-    	super.onPause();
-    	googleMap.clear();
+
+
+            super.onPause();
+            googleMap.clear();
+
     }
     protected void onResume() {
     	 double lat,longt;

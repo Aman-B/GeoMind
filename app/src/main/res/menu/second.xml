@@ -7,6 +7,13 @@
         android:id="@+id/about"
         android:orderInCategory="100"
         android:title="About"
+        android:icon="@drawable/ic_action_about"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/menu_add"
+        android:orderInCategory="100"
+        android:title="Add task"
         app:showAsAction="never"/>
 
 </menu>

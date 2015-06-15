@@ -16,7 +16,7 @@ public class marrayadapter extends ArrayAdapter<String> {
 
 
     public marrayadapter(Context context, ArrayList list) {
-        super(context,R.layout.marrayadapter, list);
+        super(context,R.layout.mcustomview, list);
     }
 
 
@@ -27,7 +27,7 @@ public class marrayadapter extends ArrayAdapter<String> {
         if(customView==null)
         {
             LayoutInflater amansinflater= LayoutInflater.from(getContext());
-            customView = amansinflater.inflate(R.layout.marrayadapter, parent, false);
+            customView = amansinflater.inflate(R.layout.mcustomview, parent, false);
         }
 
         String singleTask=getItem(position).toString();

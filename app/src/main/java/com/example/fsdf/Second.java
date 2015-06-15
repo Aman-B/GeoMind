@@ -38,6 +38,7 @@ public class Second extends ActionBarActivity {
 
         lv = (ListView) findViewById(R.id.listView1);
         mydatabase = openOrCreateDatabase("geomind", MODE_PRIVATE, null);
+      // mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Store(Job VARCHAR,Latitude double, Longitude double);");
         Cursor cursor = mydatabase.rawQuery("Select * from Store", null);
 
         final ArrayList<String> list = new ArrayList<String>();
